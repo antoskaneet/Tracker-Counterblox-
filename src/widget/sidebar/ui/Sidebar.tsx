@@ -1,14 +1,19 @@
+import "./Sidebar.css";
+import { useNavigate } from "react-router";
+import { Button } from "../../../shared/ui/Button";
+import arrow_up from "./arrow-up-from-line.svg"
 
-
-export function Sidebar () {
+export function Sidebar() {
+    const navigate = useNavigate();
 
     return (
-        <>
-        <h1>Sidebar</h1>
-        
-        
-        </>
+        <aside className="sidebar">
+            <Button label="Загрузить Матч" onClick={() => navigate("/import-match")}icon={arrow_up}>
 
 
-    )
+            </Button>
+
+
+        </aside>
+    );
 }

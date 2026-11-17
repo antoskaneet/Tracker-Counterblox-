@@ -1,0 +1,19 @@
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.workspace {
+    background-color: #191a1b;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+}

@@ -1,0 +1,13 @@
+.title {
+    width: 100%;
+    height: 35px;
+    flex-shrink: 0;
+
+    background-color: #bb0a0a;
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    user-select: none;
+}

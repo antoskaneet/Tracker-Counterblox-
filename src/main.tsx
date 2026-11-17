@@ -1,4 +1,4 @@
-import React from "react";
+import "./app/index.css"
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router";
 import { isTauri } from "@tauri-apps/api/core";

@@ -1,17 +1,20 @@
-import { Outlet } from "react-router"
-import { Sidebar } from "../widget/sidebar/ui/Sidebar"
+import { Outlet } from "react-router";
+import { Sidebar } from "../widget/sidebar/ui/Sidebar";
+import { Title } from "../widget/title/Title";
+import "./MainLayout.css";
 
-export function MainLayout () {
-
+export function MainLayout() {
     return (
-        <>
+        <div className="main-layout">
+            <Title />
 
-        <h1>MAIN LAYOUT WORKS</h1>
-        <Sidebar></Sidebar>
-        <Outlet />
-        
-        </>
+            <div className="content">
+                <Sidebar />
 
-
-    )
+                <main className="workspace">
+                    <Outlet />
+                </main>
+            </div>
+        </div>
+    );
 }
