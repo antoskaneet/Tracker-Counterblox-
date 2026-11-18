@@ -22,6 +22,8 @@
     transition:
         background-color 0.2s ease,
         color 0.2s ease;
+
+    user-select: none;
 }
 
 .custom-button:hover {

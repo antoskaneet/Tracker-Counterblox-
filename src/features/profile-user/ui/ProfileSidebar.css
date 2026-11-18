@@ -1,0 +1,64 @@
+/* Заголовок */
+.profile-modal-title {
+    color: #eeeeee;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.profile-button {
+    margin-top: auto !important;
+}
+/* Поле ввода */
+.profile-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+
+    background: #191a1c;
+    color: #ffffff;
+
+    border: 1px solid #353638;
+    border-radius: 8px;
+    outline: none;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.profile-input::placeholder {
+    color: #777777;
+}
+
+.profile-input:focus {
+    border-color: #66849c;
+    box-shadow: 0 0 0 3px rgba(102, 132, 156, 0.15);
+}
+
+/* Кнопка */
+.profile-submit {
+    width: 100%;
+    margin-top: 14px;
+    padding: 11px;
+
+    background: #354b5d;
+    color: white;
+
+    border: 1px solid #49657b;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+
+    transition: 0.2s;
+}
+
+.profile-submit:hover {
+    background: #45647c;
+}
+
+.profile-submit:active {
+    transform: scale(0.98);
+}

@@ -10,6 +10,7 @@ async function startApp() {
     if (isTauri()) {
         await init();
     }
+    
 
     ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 

@@ -1,0 +1,60 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.modal {
+    position: relative;
+
+    width: 400px;
+    padding: 24px;
+
+    background-color: #1b1d21;
+    color: white;
+
+    border: 1px solid #2c2e33;
+    border-radius: 12px;
+}
+
+/* Крестик */
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 32px;
+    height: 32px;
+
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+
+    color: #85888e;
+    font-size: 19px;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background-color: #303238;
+    color: #ffffff;
+}
+
+.modal-close:active {
+    transform: scale(0.9);
+}
