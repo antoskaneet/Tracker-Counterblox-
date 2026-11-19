@@ -1,32 +1,70 @@
+
 import { useEffect, useState } from "react";
-import { getAllMatches, getMatchById } from "../entities";
-import type { MatchWithPlayers } from "../entities";
 import "./MatchHistory.css";
+
+import { Match } from "../widget/match/Match";
+
+import { getAllMatches, getMatchById, MatchWithPlayers} from "../entities";
+
+
 
 export function MatchHistory() {
     const [matches, setMatches] = useState<MatchWithPlayers[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        async function loadMatches() {
+    async function loadMatches() {
+        try {
+            setError(null);
+
             const allMatches = await getAllMatches();
 
-            const matchesWithPlayers = await Promise.all(
-                allMatches.map(match => getMatchById(match.id))
+            const fullMatches = await Promise.all(
+                allMatches.map(async (match) => {
+                    return await getMatchById(match.id);
+                })
             );
 
-            setMatches(
-                matchesWithPlayers.filter(match => match !== null)
+            const validMatches = fullMatches.filter(
+                (match): match is MatchWithPlayers => match !== null
             );
+
+            setMatches(validMatches);
+
+        } catch (error) {
+            console.error(error);
+            setError("Не удалось загрузить матчи");
+        } finally {
+            setLoading(false);
         }
+    }
 
+    useEffect(() => {
         loadMatches();
     }, []);
 
+    if (loading) {
+        return <div>Загрузка матчей...</div>;
+    }
+
+    if (error) {
+        return <div>{error}</div>;
+    }
+
     return (
         <div className="match-history">
-            <pre>
-                {JSON.stringify(matches, null, 2)}
-            </pre>
+
+            {matches.length === 0 ? (
+                <p>Матчей пока нет</p>
+            ) : (
+                matches.map((match) => (
+                    <Match
+                        key={match.id}
+                        match={match}
+                    />
+                ))
+            )}
+
         </div>
     );
 }
